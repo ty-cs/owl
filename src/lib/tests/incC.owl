@@ -1,0 +1,5 @@
+(def! mymap {"a" 1})
+
+(prn "incC.owl finished")
+"incC.owl return string"
+

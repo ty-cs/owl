@@ -1,0 +1,66 @@
+{
+  "name": "owl",
+  "version": "0.0.1",
+  "description": "A naïve Lisp interpreter written in TypeScript.",
+  "private": true,
+  "bin": {
+    "owl": "bin/owl"
+  },
+  "scripts": {
+    "format": "prettier --write **/*.{js,ts,tsx,json}",
+    "lint": "tslint -p .",
+    "test": "jest --maxWorkers=16",
+    "test:watch": "jest --watch --maxWorkers=16",
+    "test:snapupdate": "jest --updateSnapshot --maxWorkers=16",
+    "test:coverage": "jest --coverage --maxWorkers=16",
+    "test:badges": "yarn test:coverage && jest-coverage-badges output ./badges"
+  },
+  "files": [
+    "tsconfig.json",
+    "tslint.json",
+    "LICENSE",
+    "README.md",
+    "docs",
+    "bin",
+    "src"
+  ],
+  "license": "GPL-3.0",
+  "dependencies": {
+    "ffi": "^2.3.0",
+    "gluegun": "next",
+    "ts-node": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.12",
+    "husky": "^1.1.0",
+    "jest": "^23.6.0",
+    "jest-coverage-badges": "^1.1.2",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.2.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/lib/*.ts",
+      "!src/lib/node_readline.ts"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
