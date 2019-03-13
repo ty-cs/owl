@@ -42,9 +42,7 @@ const macroExpand = (ast: OwlType, env: Env) => {
     }
     const [first, ...rest] = ast.list;
     if (first.type !== Types.Symbol) {
-      throw new Error(
-        `unexpected token type: ${first.type}, expected: list or vector`,
-      );
+      throw new Error(`unexpected token type: ${first.type}, expected: symbol`);
     }
     const fn = env.get(first);
     if (fn.type !== Types.Function) {
