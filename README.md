@@ -51,4 +51,11 @@ yarn test
 # Known Issues
 
 - https://github.com/facebook/jest/issues/6389
+
 - https://github.com/facebook/jest/issues/3552
+
+- https://github.com/facebook/jest/issues/8069
+
+  ```
+  for those facing this issue: this happened after Node v11.11. the quickest fix is to downgrade Node to 11.10.1 in your CI lock file until further investigation
+  ```
